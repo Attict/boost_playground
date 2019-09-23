@@ -18,8 +18,8 @@ get-deps:
 	echo "TODO"
 
 test:
-	mkdir -p test
-	$(CXX) $(CXXFLAGS) -o test/first 01_echo/test/*.cpp
+	mkdir -p bin/test
+	$(CXX) $(CXXFLAGS) -o bin/test/first 01_echo/test/*.cpp
 	# for d in `find . -type d -maxdepth 1 -regex '\.\/[0-9][0-9]_.*'`; \
 	#   do $(CXX) $(CXXFLAGS) -o test/$$d $$d/test/*.cpp $(LDFLAGS); \
 	#   done
