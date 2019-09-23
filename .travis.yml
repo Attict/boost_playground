@@ -1,0 +1,13 @@
+install: make get-deps
+
+os:
+  - linux
+  - osx
+
+language: generic
+
+compiler:
+  - clang
+  - gcc
+
+

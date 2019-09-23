@@ -16,4 +16,7 @@ all:
 	  do $(CXX) $(CXXFLAGS) -o bin/$$d $$d/src/*.cpp $(LDFLAGS); \
 	  done
 
+get-deps:
+	echo "TODO"
+
 clean: rm -rf $(OUTDIR)
