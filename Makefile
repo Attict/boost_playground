@@ -1,12 +1,10 @@
-OUTDIR=bin
-
-override CXXFLAGS += -std=c++17
+override CXXFLAGS += -std=c++17 -Wall -Iinclude
 
 ifeq ($(WITH_SSL),1)
   override LDFLAGS += -Lssl -Lcrypto
 endif
 
-.PHONY: all clean
+.PHONY: all test clean
 
 all:
 	mkdir -p bin
@@ -19,4 +17,13 @@ all:
 get-deps:
 	echo "TODO"
 
-clean: rm -rf $(OUTDIR)
+test:
+	mkdir -p test
+	$(CXX) $(CXXFLAGS) -o test/first 01_echo/test/*.cpp
+	# for d in `find . -type d -maxdepth 1 -regex '\.\/[0-9][0-9]_.*'`; \
+	#   do $(CXX) $(CXXFLAGS) -o test/$$d $$d/test/*.cpp $(LDFLAGS); \
+	#   done
+
+clean:
+	rm -rf bin
+	rm -rf test
